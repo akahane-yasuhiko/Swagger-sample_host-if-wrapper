@@ -1,0 +1,21 @@
+{
+  "statusCode": "0000",
+  "menu": {
+    "id": "m0001",
+    "value": "File",
+    "popup": [
+      {
+        "value": "New",
+        "onclick": "CreateNewDoc()"
+      },
+      {
+        "value": "Open",
+        "onclick": "OpenDoc()"
+      },
+      {
+        "value": "Close",
+        "onclick": "CloseDoc()"
+      }
+    ]
+  }
+}
