@@ -2,7 +2,6 @@ package io.swagger.api;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import io.swagger.log.Log;
 import io.swagger.model.Sbz002aReq;
 import io.swagger.model.Sbz002aRes;
@@ -46,7 +43,7 @@ public class Sbz002ApiController implements Sbz002Api {
 
 	@Log
     public ResponseEntity<Sbz002aRes> sbz002(@Parameter(in = ParameterIn.DEFAULT, description = "description here", required=true, schema=@Schema()) @Valid @RequestBody Sbz002aReq body) {
-//        String accept = request.getHeader("Accept");
+        String accept = request.getHeader("Accept");
 //        if (accept != null && accept.contains("application/json")) {
 //            try {
 //                return new ResponseEntity<Sbz002aRes>(objectMapper.readValue("{\n  \"resItem1\" : \"xx001\",\n  \"statusCode\" : \"0000\"\n}", Sbz002aRes.class), HttpStatus.NOT_IMPLEMENTED);

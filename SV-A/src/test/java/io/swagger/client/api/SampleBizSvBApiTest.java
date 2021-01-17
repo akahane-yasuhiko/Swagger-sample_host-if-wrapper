@@ -11,7 +11,6 @@
 package io.swagger.client.api;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
@@ -19,31 +18,30 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import javax.validation.Validation;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.beanvalidation.SpringValidatorAdapter;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.stream.JsonReader;
 import io.swagger.client.sv_b.ApiException;
 import io.swagger.client.sv_b.api.SampleBizSvBApi;
-import io.swagger.client.sv_b.model.Sbz002bReq;
 import io.swagger.client.sv_b.model.Sbz003bReq;
 
 /**
  * API tests for SampleBizSvBApi
  */
-//@Ignore
+// @Ignore
 public class SampleBizSvBApiTest {
 
   private final SampleBizSvBApi api = new SampleBizSvBApi();
 
-  private static final javax.validation.Validator javaxValidator = Validation.buildDefaultValidatorFactory().getValidator();
-  private static final SpringValidatorAdapter validator = new SpringValidatorAdapter(javaxValidator);
+  private static final javax.validation.Validator javaxValidator =
+      Validation.buildDefaultValidatorFactory().getValidator();
+  private static final SpringValidatorAdapter validator =
+      new SpringValidatorAdapter(javaxValidator);
 
   /**
    * The API return different items by status code.
@@ -55,13 +53,9 @@ public class SampleBizSvBApiTest {
    */
   @Test
   public void sbz002Test() throws Exception {
-    Gson gson = new Gson();
-    JsonReader reader = new JsonReader(new FileReader("src/test/resources/Sbz002bReq.json"));
-    Sbz002bReq body = gson.fromJson(reader, Sbz002bReq.class);
 
-//    Sbz002bResOneOf response = api.sbz002(body);
+    // Sbz002bResOneOf response = api.sbz002(body);
 
-    testMax(body, "reqItem1", 10);
     // TODO: test validations
   }
 
@@ -72,15 +66,17 @@ public class SampleBizSvBApiTest {
    *
    * @throws ApiException if the Api call fails
    */
+  @Ignore
   @Test
   public void sbz003Test() throws Exception {
     Sbz003bReq body = null;
     // InlineResponse2001 response = api.sbz003(body);
-//    Sbz003bResOneOf response = api.sbz003(body);
+    // Sbz003bResOneOf response = api.sbz003(body);
 
     // TODO: test validations
   }
 
+  /* 1月1週の ここから */
   public void testMin(Object obj, String name, int min) throws Exception {
     getSetter(obj, name);
   }
@@ -117,119 +113,133 @@ public class SampleBizSvBApiTest {
 
 
   }
+  /* 1月1週の ここまで */
 
+  /*
+   * * * * * *
+   *
+   */
 
+  private static final String ID = "sbz002b";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  public static JsonElement fromString(String json, String path)
-          throws JsonSyntaxException {
-      JsonObject obj = new GsonBuilder().create().fromJson(json,
-              JsonObject.class);
-      String[] seg = path.split("\\.");
-
-      for (String element : seg) {
-
-          if (obj != null) {
-              JsonElement ele = obj.get(element);
-              if (!ele.isJsonObject())
-                  return ele;
-              else
-                  obj = ele.getAsJsonObject();
-          } else {
-              return null;
-          }
-
-      }
-
-      return obj;
-  }
-
-  public static JsonObject fromObj(JsonObject obj, String path)
-          throws JsonSyntaxException {
-      String[] seg = path.split("\\.");
-
-      for (String element : seg) {
-
-          if (obj != null) {
-              JsonElement ele = obj.get(element);
-              if (!ele.isJsonObject())
-                  return ele.getAsJsonObject();
-              else
-                  obj = ele.getAsJsonObject();
-          } else {
-              return null;
-          }
-
-      }
-
-      return obj;
-  }
-
-  private static final String ID = "sbz002";
   @Test
+  public void testStatusCode() {
+    System.out.println("testStatusCode");
+    testMin("statusCode", 4);
+
+  }
+
+  @Test
+  public void testMenu_Id() {
+    System.out.println("testMenu_Id");
+    testMin("menu.id", 5);
+
+  }
+
+  public void testMin(String path, int min) {
+    JsonObject rootObj = getJsonObj();
+    JsonObject targetObj = rootObj;
+    System.out.println(rootObj);
+
+
+    int lastIdx = path.lastIndexOf(".");
+    String pmtPth = path.substring(lastIdx + 1);
+
+    if(0 < lastIdx) {
+      String objPth = path.substring(0, lastIdx);
+      targetObj = getJsonObjByPath(rootObj, objPth);
+    }
+
+    // 境界値最小
+    targetObj.addProperty(pmtPth, getDummyStr(min));
+    System.out.println(rootObj);
+
+
+
+
+    // 境界値最小-1
+    targetObj.addProperty(pmtPth, getDummyStr(min - 1));
+    System.out.println(rootObj);
+
+  }
+
+
+//  @Test
   public void test() throws IOException {
 
-      String text = getJsonStr();
+    JsonObject obj = getJsonObj();
+    System.out.println(obj);
 
 
-      /*
-       * TODO JSON上でObjectなやつはJsonObject、文字列なやつはJsonPrimitive。
-       * primitiveは値を変えられないので、親を持ってきてaddPropertyで値（JsonPrimitive）を上書きする。
-       *
-       */
-      JsonElement el = fromString(text, "parent.child");
+    int max = 5;
+    int min = 5;
+
+    String path = "menu.id";
+    int lstIdx = path.lastIndexOf(".");
+    String objPth = path.substring(0, lstIdx);
+    String pmtPth = path.substring(lstIdx + 1);
 
 
+    JsonObject parentObj = getJsonObjByPath(obj, objPth);
+    // parentObj.addProperty(pmtPth, "hogea");
 
-      JsonObject obj = new GsonBuilder().create().fromJson(text,
-              JsonObject.class);
-      System.out.println(obj);
+    // 空文字
+    parentObj.addProperty(pmtPth, "");
+    System.out.println(obj);
+    // null
+    parentObj.remove(pmtPth);
+    System.out.println(obj);
+    // 境界値最大
+    parentObj.addProperty(pmtPth, getDummyStr(max));
+    System.out.println(obj);
+    // 境界値最大+1
+    parentObj.addProperty(pmtPth, getDummyStr(max + 1));
+    System.out.println(obj);
+    // 境界値最小
+    parentObj.addProperty(pmtPth, getDummyStr(min));
+    System.out.println(obj);
+    // 境界値最小-1
+    parentObj.addProperty(pmtPth, getDummyStr(min - 1));
+    System.out.println(obj);
 
-      JsonObject parentObj= fromObj(obj, "parent");
-      parentObj.addProperty("child", "hoge");
+  }
 
-      System.out.println(obj);
+
+  // 以下は共通処理
+
+  public static JsonObject getJsonObj() {
+    return new GsonBuilder().create().fromJson(getJsonStr(), JsonObject.class);
+  }
+
+  public static JsonObject getJsonObjByPath(JsonObject obj, String path)
+      throws JsonSyntaxException {
+    String[] seg = path.split("\\.");
+
+    for (String element : seg) {
+      obj = obj.get(element).getAsJsonObject();
+    }
+
+    return obj;
+  }
+
+  private static String getJsonStr() {
+    Path file = Paths.get("src/test/resources/" + ID + "_response.json");
+
+    try {
+      return Files.readString(file);
+    } catch (IOException e) {
+      e.printStackTrace();
+      return null;
+    }
 
   }
 
-  private String getJsonStr() {
-      Path file = Paths.get("src/test/resources/" + ID + "_response.json");
-
-      try {
-          return Files.readString(file);
-      } catch (IOException e) {
-          e.printStackTrace();
-          return null;
-      }
-
+  public static String getDummyStr(int size) {
+    StringBuilder sb = new StringBuilder();
+    for (int i = 1; i <= size; i++) {
+      sb.append(String.valueOf(i % 10));
+    }
+    return sb.toString();
   }
 
-  public void testNullNg(String path) {
-
-  }
 }
