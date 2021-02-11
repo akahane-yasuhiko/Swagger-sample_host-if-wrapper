@@ -16,8 +16,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import io.swagger.client.sv_b.ApiException;
 import io.swagger.client.sv_c.api.SampleBizSvCApi;
-import io.swagger.client.sv_c.model.InlineResponse200;
 import io.swagger.client.sv_c.model.Sbz003cReq;
+import io.swagger.client.sv_c.model.Sbz003cRes;
 
 /**
  * API tests for SampleBizSvCApi
@@ -39,7 +39,7 @@ public class SampleBizSvCApiTest {
     @Test
     public void sbz003Test() throws ApiException, io.swagger.client.sv_c.ApiException {
         Sbz003cReq body = null;
-        InlineResponse200 response = api.sbz003(body);
+        Sbz003cRes response = api.sbz003(body);
 
         // TODO: test validations
     }

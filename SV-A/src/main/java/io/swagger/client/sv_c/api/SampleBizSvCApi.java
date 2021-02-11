@@ -28,8 +28,8 @@ import io.swagger.client.sv_c.Configuration;
 import io.swagger.client.sv_c.Pair;
 import io.swagger.client.sv_c.ProgressRequestBody;
 import io.swagger.client.sv_c.ProgressResponseBody;
-import io.swagger.client.sv_c.model.InlineResponse200;
 import io.swagger.client.sv_c.model.Sbz003cReq;
+import io.swagger.client.sv_c.model.Sbz003cRes;
 
 @Component
 public class SampleBizSvCApi {
@@ -120,11 +120,11 @@ public class SampleBizSvCApi {
      * The API return various items by status code.
      *
      * @param body description here (required)
-     * @return InlineResponse200
+     * @return Sbz003cRes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 sbz003(Sbz003cReq body) throws ApiException {
-        ApiResponse<InlineResponse200> resp = sbz003WithHttpInfo(body);
+    public Sbz003cRes sbz003(Sbz003cReq body) throws ApiException {
+        ApiResponse<Sbz003cRes> resp = sbz003WithHttpInfo(body);
         return resp.getData();
     }
 
@@ -132,12 +132,12 @@ public class SampleBizSvCApi {
      * The API return various items by status code.
      *
      * @param body description here (required)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;Sbz003cRes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> sbz003WithHttpInfo(Sbz003cReq body) throws ApiException {
+    public ApiResponse<Sbz003cRes> sbz003WithHttpInfo(Sbz003cReq body) throws ApiException {
         com.squareup.okhttp.Call call = sbz003ValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<Sbz003cRes>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -149,7 +149,7 @@ public class SampleBizSvCApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sbz003Async(Sbz003cReq body, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call sbz003Async(Sbz003cReq body, final ApiCallback<Sbz003cRes> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -171,7 +171,7 @@ public class SampleBizSvCApi {
         }
 
         com.squareup.okhttp.Call call = sbz003ValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<Sbz003cRes>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
