@@ -26,7 +26,7 @@ public class TestUtil {
 
   public static String readFile(String filePath) {
     try {
-      return Files.readString(Paths.get(filePath));
+      return String.join(System.lineSeparator(), Files.readAllLines(Paths.get(filePath)));
     } catch (IOException e) {
       e.printStackTrace();
       return null;

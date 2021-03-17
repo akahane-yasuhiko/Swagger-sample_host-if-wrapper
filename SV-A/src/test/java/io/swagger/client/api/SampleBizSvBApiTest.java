@@ -226,7 +226,7 @@ public class SampleBizSvBApiTest {
     Path file = Paths.get("src/test/resources/" + ID + "_response.json");
 
     try {
-      return Files.readString(file);
+      return String.join(System.lineSeparator(), Files.readAllLines(file));
     } catch (IOException e) {
       e.printStackTrace();
       return null;
