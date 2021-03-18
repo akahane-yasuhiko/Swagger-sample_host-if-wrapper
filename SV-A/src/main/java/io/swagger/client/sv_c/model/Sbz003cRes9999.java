@@ -1,6 +1,6 @@
 /*
  * Host-like WEB APIs with Swagger.
- * This is a practice to make host-like WEB APIs with Swagger generated code. 
+ * This is a practice to make host-like WEB APIs with Swagger generated code.
  *
  * OpenAPI spec version: 1.0.0
  * Contact: akahane.yasuhiko@gmail.com
@@ -13,16 +13,12 @@
 package io.swagger.client.sv_c.model;
 
 import java.util.Objects;
-
-import io.swagger.client.sv_c.model.Sbz003cRes;
-
-import java.util.Arrays;
 /**
  * Sbz003cRes9999
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-01-01T02:13:18.647Z[GMT]")
-public class Sbz003cRes9999 extends Sbz003cRes implements OneOfinlineResponse200 {
+public class Sbz003cRes9999 extends Sbz003cRes {
 
   @Override
   public boolean equals(java.lang.Object o) {

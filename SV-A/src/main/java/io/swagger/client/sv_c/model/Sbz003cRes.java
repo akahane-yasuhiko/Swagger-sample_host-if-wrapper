@@ -1,6 +1,6 @@
 /*
  * Host-like WEB APIs with Swagger.
- * This is a practice to make host-like WEB APIs with Swagger generated code. 
+ * This is a practice to make host-like WEB APIs with Swagger generated code.
  *
  * OpenAPI spec version: 1.0.0
  * Contact: akahane.yasuhiko@gmail.com
@@ -13,14 +13,8 @@
 package io.swagger.client.sv_c.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 /**
  * Sbz003cRes
  */
@@ -30,6 +24,9 @@ public class Sbz003cRes {
   @SerializedName("statusCode")
   private String statusCode = null;
 
+  public Sbz003cRes() {
+    this.statusCode = this.getClass().getSimpleName();
+  }
   public Sbz003cRes statusCode(String statusCode) {
     this.statusCode = statusCode;
     return this;
@@ -71,7 +68,7 @@ public class Sbz003cRes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Sbz003cRes {\n");
-    
+
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("}");
     return sb.toString();
