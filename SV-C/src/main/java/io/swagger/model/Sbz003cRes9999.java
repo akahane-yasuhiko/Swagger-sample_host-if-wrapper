@@ -10,10 +10,10 @@ import javax.validation.constraints.*;
  * Sbz003cRes9999
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-12-20T09:38:05.686Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-03-19T21:32:11.200249+09:00[Asia/Tokyo]")
 
 
-public class Sbz003cRes9999 extends Sbz003cRes implements OneOfinlineResponse200 {
+public class Sbz003cRes9999 extends Sbz003cRes  {
 
   @Override
   public boolean equals(java.lang.Object o) {

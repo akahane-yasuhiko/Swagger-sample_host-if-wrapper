@@ -3,11 +3,9 @@ package io.swagger.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-
 import org.springframework.stereotype.Service;
-
-import io.swagger.model.OneOfinlineResponse200;
 import io.swagger.model.Sbz003cReq;
+import io.swagger.model.Sbz003cRes;
 import io.swagger.model.Sbz003cRes0000;
 import io.swagger.model.Sbz003cRes2001;
 import io.swagger.model.Sbz003cRes2002;
@@ -18,7 +16,7 @@ import io.swagger.service.Sbz003Service;
 public class Sbz003ServiceImpl implements Sbz003Service {
 
 	private Map<String, String> reqSttMap;
-	private Map<String, Function<String, ? extends OneOfinlineResponse200>> sttResMap;
+	private Map<String, Function<String, ? extends Sbz003cRes>> sttResMap;
 
 	Sbz003ServiceImpl() {
 		reqSttMap = createReqSttMap();
@@ -35,8 +33,8 @@ public class Sbz003ServiceImpl implements Sbz003Service {
 		return map;
 	}
 
-	private Map<String, Function<String, ? extends OneOfinlineResponse200>> createSttResMap() {
-		Map<String, Function<String, ? extends OneOfinlineResponse200>> map = new HashMap<String, Function<String, ? extends OneOfinlineResponse200>>();
+	private Map<String, Function<String, ? extends Sbz003cRes>> createSttResMap() {
+		Map<String, Function<String, ? extends Sbz003cRes>> map = new HashMap<String, Function<String, ? extends Sbz003cRes>>();
 
 		Function<String, Sbz003cRes0000> res0000 = (in) -> {
 			Sbz003cRes0000 out = new Sbz003cRes0000();
@@ -75,14 +73,14 @@ public class Sbz003ServiceImpl implements Sbz003Service {
 
 
 	@Override
-	public OneOfinlineResponse200 execute(Sbz003cReq in) {
+	public Sbz003cRes execute(Sbz003cReq in) {
 		String reqChar = in.getReqItem2().substring(0, 1);
 
 		// ステータス判定
 		String status = reqSttMap.getOrDefault(reqChar, "9999");
 
 		// ステータスに合致するDTO生成処理を取得
-		Function<String, ? extends OneOfinlineResponse200> func = sttResMap.get(status);
+		Function<String, ? extends Sbz003cRes> func = sttResMap.get(status);
 
 		return func.apply(reqChar);
 
