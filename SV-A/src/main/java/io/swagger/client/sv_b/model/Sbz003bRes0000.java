@@ -19,37 +19,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.sv_b.model.Sbz003bRes;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
  * Sbz003bRes0000
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-01-01T02:23:55.991Z[GMT]")
-public class Sbz003bRes0000 implements OneOfinlineResponse2001 {
-  @SerializedName("statusCode")
-  private String statusCode = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-19T21:46:58.461691+09:00[Asia/Tokyo]")
+public class Sbz003bRes0000 extends Sbz003bRes {
   @SerializedName("resItem1")
   private String resItem1 = null;
-
-  public Sbz003bRes0000 statusCode(String statusCode) {
-    this.statusCode = statusCode;
-    return this;
-  }
-
-   /**
-   * Get statusCode
-   * @return statusCode
-  **/
-  @Schema(example = "0000", required = true, description = "")
-  public String getStatusCode() {
-    return statusCode;
-  }
-
-  public void setStatusCode(String statusCode) {
-    this.statusCode = statusCode;
-  }
 
   public Sbz003bRes0000 resItem1(String resItem1) {
     this.resItem1 = resItem1;
@@ -79,13 +59,13 @@ public class Sbz003bRes0000 implements OneOfinlineResponse2001 {
       return false;
     }
     Sbz003bRes0000 sbz003bRes0000 = (Sbz003bRes0000) o;
-    return Objects.equals(this.statusCode, sbz003bRes0000.statusCode) &&
-        Objects.equals(this.resItem1, sbz003bRes0000.resItem1);
+    return Objects.equals(this.resItem1, sbz003bRes0000.resItem1) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statusCode, resItem1);
+    return Objects.hash(resItem1, super.hashCode());
   }
 
 
@@ -93,8 +73,7 @@ public class Sbz003bRes0000 implements OneOfinlineResponse2001 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Sbz003bRes0000 {\n");
-    
-    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    resItem1: ").append(toIndentedString(resItem1)).append("\n");
     sb.append("}");
     return sb.toString();

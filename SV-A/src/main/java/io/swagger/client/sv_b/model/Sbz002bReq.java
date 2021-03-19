@@ -25,27 +25,27 @@ import java.io.IOException;
  * Sbz002bReq
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-01-01T02:23:55.991Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-19T21:46:58.461691+09:00[Asia/Tokyo]")
 public class Sbz002bReq {
-  @SerializedName("reqItem1")
-  private String reqItem1 = null;
+  @SerializedName("userid")
+  private String userid = null;
 
-  public Sbz002bReq reqItem1(String reqItem1) {
-    this.reqItem1 = reqItem1;
+  public Sbz002bReq userid(String userid) {
+    this.userid = userid;
     return this;
   }
 
    /**
-   * Get reqItem1
-   * @return reqItem1
+   * Get userid
+   * @return userid
   **/
-  @Schema(example = "fuga", required = true, description = "")
-  public String getReqItem1() {
-    return reqItem1;
+  @Schema(example = "fugaid", required = true, description = "")
+  public String getUserid() {
+    return userid;
   }
 
-  public void setReqItem1(String reqItem1) {
-    this.reqItem1 = reqItem1;
+  public void setUserid(String userid) {
+    this.userid = userid;
   }
 
 
@@ -58,12 +58,12 @@ public class Sbz002bReq {
       return false;
     }
     Sbz002bReq sbz002bReq = (Sbz002bReq) o;
-    return Objects.equals(this.reqItem1, sbz002bReq.reqItem1);
+    return Objects.equals(this.userid, sbz002bReq.userid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reqItem1);
+    return Objects.hash(userid);
   }
 
 
@@ -72,7 +72,7 @@ public class Sbz002bReq {
     StringBuilder sb = new StringBuilder();
     sb.append("class Sbz002bReq {\n");
     
-    sb.append("    reqItem1: ").append(toIndentedString(reqItem1)).append("\n");
+    sb.append("    userid: ").append(toIndentedString(userid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -13,12 +13,10 @@
 package io.swagger.client.sv_c.auth;
 
 import java.util.Map;
-
 import io.swagger.client.sv_c.Pair;
-
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-01-01T02:13:18.647Z[GMT]")public class ApiKeyAuth implements Authentication {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-18T22:57:35.042020+09:00[Asia/Tokyo]")public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
 

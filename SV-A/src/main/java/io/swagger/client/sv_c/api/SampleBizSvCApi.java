@@ -1,6 +1,6 @@
 /*
  * Host-like WEB APIs with Swagger.
- * This is a practice to make host-like WEB APIs with Swagger generated code.
+ * This is a practice to make host-like WEB APIs with Swagger generated code. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: akahane.yasuhiko@gmail.com
@@ -12,13 +12,6 @@
 
 package io.swagger.client.sv_c.api;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.springframework.stereotype.Component;
 import com.google.gson.reflect.TypeToken;
 import io.swagger.client.sv_c.ApiCallback;
 import io.swagger.client.sv_c.ApiClient;
@@ -30,8 +23,13 @@ import io.swagger.client.sv_c.ProgressRequestBody;
 import io.swagger.client.sv_c.ProgressResponseBody;
 import io.swagger.client.sv_c.model.Sbz003cReq;
 import io.swagger.client.sv_c.model.Sbz003cRes;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-@Component
 public class SampleBizSvCApi {
     private ApiClient apiClient;
 
@@ -61,7 +59,7 @@ public class SampleBizSvCApi {
      */
     public com.squareup.okhttp.Call sbz003Call(Sbz003cReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-
+        
         // create path and map variables
         String localVarPath = "/sbz003";
 
@@ -99,26 +97,26 @@ public class SampleBizSvCApi {
         String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-
+    
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call sbz003ValidateBeforeCall(Sbz003cReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling sbz003(Async)");
         }
-
+        
         com.squareup.okhttp.Call call = sbz003Call(body, progressListener, progressRequestListener);
         return call;
 
-
-
-
-
+        
+        
+        
+        
     }
 
     /**
      * The API return various items by status code.
-     *
+     * 
      * @param body description here (required)
      * @return Sbz003cRes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -130,7 +128,7 @@ public class SampleBizSvCApi {
 
     /**
      * The API return various items by status code.
-     *
+     * 
      * @param body description here (required)
      * @return ApiResponse&lt;Sbz003cRes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -143,7 +141,7 @@ public class SampleBizSvCApi {
 
     /**
      * The API return various items by status code. (asynchronously)
-     *
+     * 
      * @param body description here (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

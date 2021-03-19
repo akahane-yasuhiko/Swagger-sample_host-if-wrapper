@@ -1,6 +1,6 @@
 /*
  * Host-like WEB APIs with Swagger.
- * This is a practice to make host-like WEB APIs with Swagger generated code.
+ * This is a practice to make host-like WEB APIs with Swagger generated code. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: akahane.yasuhiko@gmail.com
@@ -12,13 +12,6 @@
 
 package io.swagger.client.sv_b.api;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.springframework.stereotype.Component;
 import com.google.gson.reflect.TypeToken;
 import io.swagger.client.sv_b.ApiCallback;
 import io.swagger.client.sv_b.ApiClient;
@@ -28,12 +21,17 @@ import io.swagger.client.sv_b.Configuration;
 import io.swagger.client.sv_b.Pair;
 import io.swagger.client.sv_b.ProgressRequestBody;
 import io.swagger.client.sv_b.ProgressResponseBody;
-import io.swagger.client.sv_b.model.InlineResponse200;
-import io.swagger.client.sv_b.model.InlineResponse2001;
 import io.swagger.client.sv_b.model.Sbz002bReq;
+import io.swagger.client.sv_b.model.Sbz002bRes;
 import io.swagger.client.sv_b.model.Sbz003bReq;
+import io.swagger.client.sv_b.model.Sbz003bRes;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-@Component
 public class SampleBizSvBApi {
     private ApiClient apiClient;
 
@@ -63,7 +61,7 @@ public class SampleBizSvBApi {
      */
     public com.squareup.okhttp.Call sbz002Call(Sbz002bReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-
+        
         // create path and map variables
         String localVarPath = "/sbz002";
 
@@ -101,57 +99,57 @@ public class SampleBizSvBApi {
         String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-
+    
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call sbz002ValidateBeforeCall(Sbz002bReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling sbz002(Async)");
         }
-
+        
         com.squareup.okhttp.Call call = sbz002Call(body, progressListener, progressRequestListener);
         return call;
 
-
-
-
-
+        
+        
+        
+        
     }
 
     /**
      * The API return different items by status code.
-     *
+     * 
      * @param body description here (required)
-     * @return InlineResponse200
+     * @return Sbz002bRes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 sbz002(Sbz002bReq body) throws ApiException {
-        ApiResponse<InlineResponse200> resp = sbz002WithHttpInfo(body);
+    public Sbz002bRes sbz002(Sbz002bReq body) throws ApiException {
+        ApiResponse<Sbz002bRes> resp = sbz002WithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * The API return different items by status code.
-     *
+     * 
      * @param body description here (required)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;Sbz002bRes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> sbz002WithHttpInfo(Sbz002bReq body) throws ApiException {
+    public ApiResponse<Sbz002bRes> sbz002WithHttpInfo(Sbz002bReq body) throws ApiException {
         com.squareup.okhttp.Call call = sbz002ValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<Sbz002bRes>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * The API return different items by status code. (asynchronously)
-     *
+     * 
      * @param body description here (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sbz002Async(Sbz002bReq body, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call sbz002Async(Sbz002bReq body, final ApiCallback<Sbz002bRes> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -173,7 +171,7 @@ public class SampleBizSvBApi {
         }
 
         com.squareup.okhttp.Call call = sbz002ValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<Sbz002bRes>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -187,7 +185,7 @@ public class SampleBizSvBApi {
      */
     public com.squareup.okhttp.Call sbz003Call(Sbz003bReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-
+        
         // create path and map variables
         String localVarPath = "/sbz003";
 
@@ -225,57 +223,57 @@ public class SampleBizSvBApi {
         String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-
+    
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call sbz003ValidateBeforeCall(Sbz003bReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling sbz003(Async)");
         }
-
+        
         com.squareup.okhttp.Call call = sbz003Call(body, progressListener, progressRequestListener);
         return call;
 
-
-
-
-
+        
+        
+        
+        
     }
 
     /**
      * The API return different items by status code.
-     *
+     * 
      * @param body description here (required)
-     * @return InlineResponse2001
+     * @return Sbz003bRes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 sbz003(Sbz003bReq body) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = sbz003WithHttpInfo(body);
+    public Sbz003bRes sbz003(Sbz003bReq body) throws ApiException {
+        ApiResponse<Sbz003bRes> resp = sbz003WithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * The API return different items by status code.
-     *
+     * 
      * @param body description here (required)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;Sbz003bRes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> sbz003WithHttpInfo(Sbz003bReq body) throws ApiException {
+    public ApiResponse<Sbz003bRes> sbz003WithHttpInfo(Sbz003bReq body) throws ApiException {
         com.squareup.okhttp.Call call = sbz003ValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<Sbz003bRes>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * The API return different items by status code. (asynchronously)
-     *
+     * 
      * @param body description here (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sbz003Async(Sbz003bReq body, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call sbz003Async(Sbz003bReq body, final ApiCallback<Sbz003bRes> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -297,7 +295,7 @@ public class SampleBizSvBApi {
         }
 
         com.squareup.okhttp.Call call = sbz003ValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<Sbz003bRes>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

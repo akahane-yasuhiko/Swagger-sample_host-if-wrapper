@@ -1,6 +1,6 @@
 /*
  * Host-like WEB APIs with Swagger.
- * This is a practice to make host-like WEB APIs with Swagger generated code.
+ * This is a practice to make host-like WEB APIs with Swagger generated code. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: akahane.yasuhiko@gmail.com
@@ -12,6 +12,22 @@
 
 package io.swagger.client.sv_c;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import io.gsonfire.GsonFireBuilder;
+import io.gsonfire.PostProcessor;
+import io.gsonfire.TypeSelector;
+import io.swagger.client.sv_c.model.*;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -19,29 +35,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.format.DateTimeFormatter;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.internal.bind.util.ISO8601Utils;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.gsonfire.GsonFireBuilder;
-import io.gsonfire.PostProcessor;
-import io.gsonfire.TypeSelector;
-import io.swagger.client.sv_c.model.Sbz003cRes;
-import io.swagger.client.sv_c.model.Sbz003cRes0000;
-import io.swagger.client.sv_c.model.Sbz003cRes2001;
-import io.swagger.client.sv_c.model.Sbz003cRes2002;
-import io.swagger.client.sv_c.model.Sbz003cRes9999;
-import io.swagger.log.Log;
+import java.util.HashMap;
 
 public class JSON {
     private Gson gson;
@@ -57,16 +52,13 @@ public class JSON {
             @Override
             public Class<? extends Sbz003cRes> getClassForElement(JsonElement readElement) {
                 Map<String, Class<? extends Sbz003cRes>> classByDiscriminatorValue = new HashMap<>();
-                //discriminator.mapping:
-                classByDiscriminatorValue.put("0000", Sbz003cRes0000.class);// classByDiscriminatorValue.put("Sbz003cRes0000".toUpperCase(), Sbz003cRes0000.class);
-                classByDiscriminatorValue.put("2001", Sbz003cRes2001.class);// classByDiscriminatorValue.put("Sbz003cRes2001".toUpperCase(), Sbz003cRes2001.class);
-                classByDiscriminatorValue.put("2002", Sbz003cRes2002.class);// classByDiscriminatorValue.put("Sbz003cRes2002".toUpperCase(), Sbz003cRes2002.class);
-                classByDiscriminatorValue.put("9999", Sbz003cRes9999.class);// classByDiscriminatorValue.put("Sbz003cRes9999".toUpperCase(), Sbz003cRes9999.class);
-                // Sbz003cResを返すことはない。// classByDiscriminatorValue.put("Sbz003cRes".toUpperCase(), Sbz003cRes.class);
+                    classByDiscriminatorValue.put("0000".toUpperCase(), Sbz003cRes0000.class);
+                    classByDiscriminatorValue.put("2001".toUpperCase(), Sbz003cRes2001.class);
+                    classByDiscriminatorValue.put("2002".toUpperCase(), Sbz003cRes2002.class);
+                    classByDiscriminatorValue.put("9999".toUpperCase(), Sbz003cRes9999.class);
                 return getClassByDiscriminator(
                             classByDiscriminatorValue,
-                            // discriminator.propertyName: statusCode
-                            getDiscriminatorValue(readElement, "statusCode")); //getDiscriminatorValue(readElement, ""));
+                            getDiscriminatorValue(readElement, "statusCode"));
             }
           })
           .registerPostProcessor(Sbz003cRes.class, new PostProcessor<Sbz003cRes>() {
@@ -77,17 +69,16 @@ public class JSON {
 
               @Override
               public void postSerialize(JsonElement result, Sbz003cRes src, Gson gson) {
-                      Map<Class<? extends Sbz003cRes>, String> discriminatorValueByClass = new HashMap<>();
-                      discriminatorValueByClass.put(Sbz003cRes0000.class, "0000");// discriminatorValueByClass.put(Sbz003cRes0000.class, "Sbz003cRes0000");
-                      discriminatorValueByClass.put(Sbz003cRes2001.class, "2001");// discriminatorValueByClass.put(Sbz003cRes2001.class, "Sbz003cRes2001");
-                      discriminatorValueByClass.put(Sbz003cRes2002.class, "2002");// discriminatorValueByClass.put(Sbz003cRes2002.class, "Sbz003cRes2002");
-                      discriminatorValueByClass.put(Sbz003cRes9999.class, "9999");// discriminatorValueByClass.put(Sbz003cRes9999.class, "Sbz003cRes9999");
-                      // Sbz003cResを返すことはない。// discriminatorValueByClass.put(Sbz003cRes.class, "Sbz003cRes");
+                  Map<Class<? extends Sbz003cRes>, String> discriminatorValueByClass = new HashMap<>();
+                      discriminatorValueByClass.put(Sbz003cRes0000.class, "0000");
+                      discriminatorValueByClass.put(Sbz003cRes2001.class, "2001");
+                      discriminatorValueByClass.put(Sbz003cRes2002.class, "2002");
+                      discriminatorValueByClass.put(Sbz003cRes9999.class, "9999");
                   if(result instanceof JsonObject)
                   {
-                      if(!((JsonObject) result).has("statusCode"))// if(!((JsonObject) result).has(""))
+                      if(!((JsonObject) result).has("statusCode"))
                       {
-                          ((JsonObject) result).addProperty("statusCode", discriminatorValueByClass.get(src.getClass()));//((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
+                          ((JsonObject) result).addProperty("statusCode", discriminatorValueByClass.get(src.getClass()));
                       }
                   }
               }
@@ -152,7 +143,6 @@ public class JSON {
      * @param obj Object
      * @return String representation of the JSON
      */
-    @Log
     public String serialize(Object obj) {
         return gson.toJson(obj);
     }
@@ -165,7 +155,6 @@ public class JSON {
      * @param returnType The type to deserialize into
      * @return The deserialized Java object
      */
-    @Log
     @SuppressWarnings("unchecked")
     public <T> T deserialize(String body, Type returnType) {
         try {

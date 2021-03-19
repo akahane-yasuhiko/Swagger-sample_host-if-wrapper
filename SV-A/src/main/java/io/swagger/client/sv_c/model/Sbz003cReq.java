@@ -25,7 +25,7 @@ import java.io.IOException;
  * Sbz003cReq
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-01-01T02:13:18.647Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-18T22:57:35.042020+09:00[Asia/Tokyo]")
 public class Sbz003cReq {
   @SerializedName("reqItem2")
   private String reqItem2 = null;

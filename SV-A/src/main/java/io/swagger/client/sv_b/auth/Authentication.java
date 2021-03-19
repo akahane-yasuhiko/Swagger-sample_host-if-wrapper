@@ -13,9 +13,7 @@
 package io.swagger.client.sv_b.auth;
 
 import java.util.Map;
-
 import io.swagger.client.sv_b.Pair;
-
 import java.util.List;
 
 public interface Authentication {

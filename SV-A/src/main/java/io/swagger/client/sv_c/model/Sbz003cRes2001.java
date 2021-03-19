@@ -1,6 +1,6 @@
 /*
  * Host-like WEB APIs with Swagger.
- * This is a practice to make host-like WEB APIs with Swagger generated code.
+ * This is a practice to make host-like WEB APIs with Swagger generated code. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: akahane.yasuhiko@gmail.com
@@ -13,13 +13,20 @@
 package io.swagger.client.sv_c.model;
 
 import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.client.sv_c.model.Sbz003cRes;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 /**
  * Sbz003cRes2001
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-01-01T02:13:18.647Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-18T22:57:35.042020+09:00[Asia/Tokyo]")
 public class Sbz003cRes2001 extends Sbz003cRes {
   @SerializedName("resItem2001")
   private String resItem2001 = null;

@@ -8,8 +8,8 @@ import org.springframework.validation.DataBinder;
 import org.springframework.validation.Validator;
 import io.swagger.client.sv_b.ApiException;
 import io.swagger.client.sv_b.api.SampleBizSvBApi;
-import io.swagger.client.sv_b.model.OneOfinlineResponse200;
 import io.swagger.client.sv_b.model.Sbz002bReq;
+import io.swagger.client.sv_b.model.Sbz002bRes;
 import io.swagger.client.sv_b.model.Sbz002bRes0000;
 import io.swagger.model.Sbz002aReq;
 import io.swagger.model.Sbz002aRes;
@@ -35,10 +35,10 @@ public class Sbz002ServiceImpl implements Sbz002Service {
   }
 
   @Override
-  public OneOfinlineResponse200 delegate(Sbz002bReq param) {
+  public Sbz002bRes delegate(Sbz002bReq param) {
 
     try {
-      OneOfinlineResponse200 res = bApi.sbz002(param);
+      Sbz002bRes res = bApi.sbz002(param);
 
       BindingResult br = new DataBinder(res).getBindingResult();
 
@@ -60,7 +60,7 @@ public class Sbz002ServiceImpl implements Sbz002Service {
   }
 
   @Override
-  public Sbz002aRes afterDelegate(OneOfinlineResponse200 result) {
+  public Sbz002aRes afterDelegate(Sbz002bRes result) {
 
     Sbz002aRes out = mapper.map(result, Sbz002aRes.class);
 

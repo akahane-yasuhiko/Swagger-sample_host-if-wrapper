@@ -1,6 +1,6 @@
 /*
  * Host-like WEB APIs with Swagger.
- * This is a practice to make host-like WEB APIs with Swagger generated code.
+ * This is a practice to make host-like WEB APIs with Swagger generated code. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: akahane.yasuhiko@gmail.com
@@ -12,6 +12,22 @@
 
 package io.swagger.client.sv_b;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import io.gsonfire.GsonFireBuilder;
+import io.gsonfire.PostProcessor;
+import io.gsonfire.TypeSelector;
+import io.swagger.client.sv_b.model.*;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -20,21 +36,7 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.Date;
 import java.util.Map;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.format.DateTimeFormatter;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.internal.bind.util.ISO8601Utils;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.gsonfire.GsonFireBuilder;
-import io.swagger.client.sv_b.model.Sbz002bRes0000;
-import io.swagger.client.sv_b.model.Sbz002bRes0001;
+import java.util.HashMap;
 
 public class JSON {
     private Gson gson;
@@ -46,6 +48,68 @@ public class JSON {
 
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+          .registerTypeSelector(Sbz002bRes.class, new TypeSelector<Sbz002bRes>() {
+            @Override
+            public Class<? extends Sbz002bRes> getClassForElement(JsonElement readElement) {
+                Map<String, Class<? extends Sbz002bRes>> classByDiscriminatorValue = new HashMap<>();
+                    classByDiscriminatorValue.put("0000".toUpperCase(), Sbz002bRes0000.class);
+                    classByDiscriminatorValue.put("0001".toUpperCase(), Sbz002bRes0001.class);
+                return getClassByDiscriminator(
+                            classByDiscriminatorValue,
+                            getDiscriminatorValue(readElement, "statusCode"));
+            }
+          })
+          .registerPostProcessor(Sbz002bRes.class, new PostProcessor<Sbz002bRes>() {
+              @Override
+              public void postDeserialize(Sbz002bRes result, JsonElement src, Gson gson) {
+
+              }
+
+              @Override
+              public void postSerialize(JsonElement result, Sbz002bRes src, Gson gson) {
+                  Map<Class<? extends Sbz002bRes>, String> discriminatorValueByClass = new HashMap<>();
+                      discriminatorValueByClass.put(Sbz002bRes0000.class, "0000");
+                      discriminatorValueByClass.put(Sbz002bRes0001.class, "0001");
+                  if(result instanceof JsonObject)
+                  {
+                      if(!((JsonObject) result).has("statusCode"))
+                      {
+                          ((JsonObject) result).addProperty("statusCode", discriminatorValueByClass.get(src.getClass()));
+                      }
+                  }
+              }
+          })
+          .registerTypeSelector(Sbz003bRes.class, new TypeSelector<Sbz003bRes>() {
+            @Override
+            public Class<? extends Sbz003bRes> getClassForElement(JsonElement readElement) {
+                Map<String, Class<? extends Sbz003bRes>> classByDiscriminatorValue = new HashMap<>();
+                    classByDiscriminatorValue.put("0000".toUpperCase(), Sbz003bRes0000.class);
+                    classByDiscriminatorValue.put("0001".toUpperCase(), Sbz003bRes0001.class);
+                return getClassByDiscriminator(
+                            classByDiscriminatorValue,
+                            getDiscriminatorValue(readElement, "statusCode"));
+            }
+          })
+          .registerPostProcessor(Sbz003bRes.class, new PostProcessor<Sbz003bRes>() {
+              @Override
+              public void postDeserialize(Sbz003bRes result, JsonElement src, Gson gson) {
+
+              }
+
+              @Override
+              public void postSerialize(JsonElement result, Sbz003bRes src, Gson gson) {
+                  Map<Class<? extends Sbz003bRes>, String> discriminatorValueByClass = new HashMap<>();
+                      discriminatorValueByClass.put(Sbz003bRes0000.class, "0000");
+                      discriminatorValueByClass.put(Sbz003bRes0001.class, "0001");
+                  if(result instanceof JsonObject)
+                  {
+                      if(!((JsonObject) result).has("statusCode"))
+                      {
+                          ((JsonObject) result).addProperty("statusCode", discriminatorValueByClass.get(src.getClass()));
+                      }
+                  }
+              }
+          })
         ;
         return fireBuilder.createGsonBuilder();
     }
@@ -127,16 +191,7 @@ public class JSON {
                 jsonReader.setLenient(true);
                 return gson.fromJson(jsonReader, returnType);
             } else {
-              // XXX
-              Map<String, Object> resp = gson.fromJson(body, new TypeToken<Map<String, Object>>(){}.getType());
-              String statusCode = (String) resp.get("statusCode");
-              if("0000".equals(statusCode)) {
-                return gson.fromJson(body, new TypeToken<Sbz002bRes0000>(){}.getType());
-              }else if ("0001".equals(statusCode)){
-                return gson.fromJson(body, new TypeToken<Sbz002bRes0001>(){}.getType());
-              }else {
                 return gson.fromJson(body, returnType);
-              }
             }
         } catch (JsonParseException e) {
             // Fallback processing when failed to parse JSON form response body:

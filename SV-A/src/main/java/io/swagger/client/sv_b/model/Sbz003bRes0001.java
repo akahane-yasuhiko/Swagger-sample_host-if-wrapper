@@ -13,41 +13,14 @@
 package io.swagger.client.sv_b.model;
 
 import java.util.Objects;
+import io.swagger.client.sv_b.model.Sbz003bRes;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 /**
  * Sbz003bRes0001
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-01-01T02:23:55.991Z[GMT]")
-public class Sbz003bRes0001 implements OneOfinlineResponse2001 {
-  @SerializedName("statusCode")
-  private String statusCode = null;
-
-  public Sbz003bRes0001 statusCode(String statusCode) {
-    this.statusCode = statusCode;
-    return this;
-  }
-
-   /**
-   * Get statusCode
-   * @return statusCode
-  **/
-  @Schema(example = "0001", required = true, description = "")
-  public String getStatusCode() {
-    return statusCode;
-  }
-
-  public void setStatusCode(String statusCode) {
-    this.statusCode = statusCode;
-  }
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-19T21:46:58.461691+09:00[Asia/Tokyo]")
+public class Sbz003bRes0001 extends Sbz003bRes {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -57,13 +30,12 @@ public class Sbz003bRes0001 implements OneOfinlineResponse2001 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Sbz003bRes0001 sbz003bRes0001 = (Sbz003bRes0001) o;
-    return Objects.equals(this.statusCode, sbz003bRes0001.statusCode);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statusCode);
+    return Objects.hash(super.hashCode());
   }
 
 
@@ -71,8 +43,7 @@ public class Sbz003bRes0001 implements OneOfinlineResponse2001 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Sbz003bRes0001 {\n");
-    
-    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }
