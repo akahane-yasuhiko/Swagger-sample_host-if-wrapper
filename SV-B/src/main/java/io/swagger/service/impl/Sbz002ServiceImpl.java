@@ -17,7 +17,7 @@ public class Sbz002ServiceImpl implements Sbz002Service {
 	@Override
 	public Sbz002bRes execute(Sbz002bReq in) {
 		String userid = in.getUserid();
-		if (userid.startsWith("0")) {
+		if (userid.length() == 4) {
 			Sbz002bRes0000 res = new Sbz002bRes0000();
 
 			res.setMenu(createSampleMenu());

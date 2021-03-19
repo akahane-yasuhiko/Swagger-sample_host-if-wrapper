@@ -13,7 +13,7 @@ public class Sbz003ServiceImpl implements Sbz003Service {
 	@Override
 	public Sbz003bRes execute(Sbz003bReq in) {
 		String reqItem1 = in.getReqItem1();
-		if (reqItem1.startsWith("0")) {
+		if (reqItem1.length() == 4) {
 			Sbz003bRes0000 res = new Sbz003bRes0000();
 			res.setResItem1("003sv");
 			res.setStatusCode("0000");

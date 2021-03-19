@@ -74,7 +74,7 @@ public class Sbz003ServiceImpl implements Sbz003Service {
 
 	@Override
 	public Sbz003cRes execute(Sbz003cReq in) {
-		String reqChar = in.getReqItem2().substring(0, 1);
+		String reqChar = in.getReqItem2().substring(in.getReqItem2().length()-1);
 
 		// ステータス判定
 		String status = reqSttMap.getOrDefault(reqChar, "9999");
