@@ -10,7 +10,6 @@ import io.swagger.client.sv_b.ApiException;
 import io.swagger.client.sv_b.api.SampleBizSvBApi;
 import io.swagger.client.sv_b.model.Sbz002bReq;
 import io.swagger.client.sv_b.model.Sbz002bRes;
-import io.swagger.client.sv_b.model.Sbz002bRes0000;
 import io.swagger.model.Sbz002aReq;
 import io.swagger.model.Sbz002aRes;
 import io.swagger.service.Sbz002Service;
@@ -29,7 +28,8 @@ public class Sbz002ServiceImpl implements Sbz002Service {
   @Override
   public Sbz002bReq beforeDelegate(Sbz002aReq in) {
 
-    Sbz002bReq req = mapper.map(in, Sbz002bReq.class);
+    Sbz002bReq req = new Sbz002bReq();
+    req.setUserid(in.getReqItem1());
 
     return req;
   }
@@ -41,14 +41,9 @@ public class Sbz002ServiceImpl implements Sbz002Service {
       Sbz002bRes res = bApi.sbz002(param);
 
       BindingResult br = new DataBinder(res).getBindingResult();
-
-      if (res instanceof Sbz002bRes0000) {
-        Sbz002bRes0000 sbz002bRes0000 = (Sbz002bRes0000)res;
-        validator.validate(sbz002bRes0000, br);
-        if (br.hasErrors()) {
-          throw new RuntimeException(br.toString());
-        }
-
+      validator.validate(res ,br);
+      if (br.hasErrors()) {
+        throw new RuntimeException(br.toString());
       }
 
       return res;
