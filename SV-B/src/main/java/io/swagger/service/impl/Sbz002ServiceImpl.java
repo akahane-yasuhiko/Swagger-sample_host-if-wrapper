@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import io.swagger.model.Menu;
 import io.swagger.model.MenuPopup;
-import io.swagger.model.OneOfinlineResponse200;
 import io.swagger.model.Sbz002bReq;
+import io.swagger.model.Sbz002bRes;
 import io.swagger.model.Sbz002bRes0000;
 import io.swagger.model.Sbz002bRes0001;
 import io.swagger.service.Sbz002Service;
@@ -15,9 +15,9 @@ import io.swagger.service.Sbz002Service;
 public class Sbz002ServiceImpl implements Sbz002Service {
 
 	@Override
-	public OneOfinlineResponse200 execute(Sbz002bReq in) {
-		String reqItem1 = in.getReqItem1();
-		if (reqItem1.startsWith("0")) {
+	public Sbz002bRes execute(Sbz002bReq in) {
+		String userid = in.getUserid();
+		if (userid.startsWith("0")) {
 			Sbz002bRes0000 res = new Sbz002bRes0000();
 
 			res.setMenu(createSampleMenu());

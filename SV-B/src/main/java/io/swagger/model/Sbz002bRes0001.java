@@ -1,9 +1,7 @@
 package io.swagger.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.model.Sbz002bRes;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -12,33 +10,10 @@ import javax.validation.constraints.*;
  * Sbz002bRes0001
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-12-20T08:49:44.071Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-03-19T21:32:23.879104+09:00[Asia/Tokyo]")
 
 
-public class Sbz002bRes0001  implements OneOfinlineResponse200 {
-  @JsonProperty("statusCode")
-  private String statusCode = null;
-
-  public Sbz002bRes0001 statusCode(String statusCode) {
-    this.statusCode = statusCode;
-    return this;
-  }
-
-  /**
-   * Get statusCode
-   * @return statusCode
-   **/
-  @Schema(example = "0001", required = true, description = "")
-      @NotNull
-
-  @Size(min=4,max=4)   public String getStatusCode() {
-    return statusCode;
-  }
-
-  public void setStatusCode(String statusCode) {
-    this.statusCode = statusCode;
-  }
-
+public class Sbz002bRes0001 extends Sbz002bRes  {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -48,21 +23,19 @@ public class Sbz002bRes0001  implements OneOfinlineResponse200 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Sbz002bRes0001 sbz002bRes0001 = (Sbz002bRes0001) o;
-    return Objects.equals(this.statusCode, sbz002bRes0001.statusCode);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statusCode);
+    return Objects.hash(super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Sbz002bRes0001 {\n");
-    
-    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -3,40 +3,48 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeId;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * Sbz002bReq
+ * Sbz003bRes
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-03-19T21:32:23.879104+09:00[Asia/Tokyo]")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "statusCode", visible = true )
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Sbz003bRes0000.class, name = "0000"),
+        @JsonSubTypes.Type(value = Sbz003bRes0001.class, name = "0001"),
+})
 
 
-public class Sbz002bReq   {
-  @JsonProperty("userid")
-  private String userid = null;
+public class Sbz003bRes   {
+  @JsonTypeId
+  private String statusCode = null;
 
-  public Sbz002bReq userid(String userid) {
-    this.userid = userid;
+  public Sbz003bRes statusCode(String statusCode) {
+    this.statusCode = statusCode;
     return this;
   }
 
   /**
-   * Get userid
-   * @return userid
+   * Get statusCode
+   * @return statusCode
    **/
-  @Schema(example = "fugaid", required = true, description = "")
+  @Schema(required = true, description = "")
       @NotNull
 
-  @Size(min=4,max=20)   public String getUserid() {
-    return userid;
+  @Size(min=4,max=4)   public String getStatusCode() {
+    return statusCode;
   }
 
-  public void setUserid(String userid) {
-    this.userid = userid;
+  public void setStatusCode(String statusCode) {
+    this.statusCode = statusCode;
   }
 
 
@@ -48,21 +56,21 @@ public class Sbz002bReq   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Sbz002bReq sbz002bReq = (Sbz002bReq) o;
-    return Objects.equals(this.userid, sbz002bReq.userid);
+    Sbz003bRes sbz003bRes = (Sbz003bRes) o;
+    return Objects.equals(this.statusCode, sbz003bRes.statusCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userid);
+    return Objects.hash(statusCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Sbz002bReq {\n");
+    sb.append("class Sbz003bRes {\n");
     
-    sb.append("    userid: ").append(toIndentedString(userid)).append("\n");
+    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
