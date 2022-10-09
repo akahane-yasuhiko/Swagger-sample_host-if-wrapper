@@ -25,3 +25,4 @@ hs_err_pid*
 SV-A/target/
 SV-B/target/
 SV-C/target/
+/.metadata/
