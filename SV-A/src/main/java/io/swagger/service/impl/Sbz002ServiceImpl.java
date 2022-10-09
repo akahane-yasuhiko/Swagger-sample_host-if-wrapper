@@ -10,12 +10,17 @@ import io.swagger.client.sv_b.ApiException;
 import io.swagger.client.sv_b.api.SampleBizSvBApi;
 import io.swagger.client.sv_b.model.Sbz002bReq;
 import io.swagger.client.sv_b.model.Sbz002bRes;
+import io.swagger.model.Menu;
 import io.swagger.model.Sbz002aReq;
 import io.swagger.model.Sbz002aRes;
 import io.swagger.service.Sbz002Service;
+import io.swagger.service.component.MenuBiz;
 
 @Service
 public class Sbz002ServiceImpl implements Sbz002Service {
+  @Autowired
+  MenuBiz menuBiz;
+  
   @Autowired
   Mapper mapper;
 
@@ -58,6 +63,7 @@ public class Sbz002ServiceImpl implements Sbz002Service {
   public Sbz002aRes afterDelegate(Sbz002bRes result) {
 
     Sbz002aRes out = mapper.map(result, Sbz002aRes.class);
+    out.setMenu(menuBiz.getMenu());
 
     return out;
   }

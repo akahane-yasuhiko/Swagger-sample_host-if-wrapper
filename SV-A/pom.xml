@@ -6,7 +6,7 @@
     <name>swagger-spring</name>
     <version>1.0.0</version>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <springfox-version>3.0.0</springfox-version>
@@ -133,7 +133,7 @@
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
-		    <version>1.18.16</version>
+		    <version>1.18.22</version>
 		    <scope>provided</scope>
 		</dependency>
 

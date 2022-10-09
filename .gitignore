@@ -26,3 +26,5 @@ SV-A/target/
 SV-B/target/
 SV-C/target/
 /.metadata/
+/*/.settings/
+/*/.factorypath
